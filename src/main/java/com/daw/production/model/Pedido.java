@@ -7,15 +7,15 @@ import org.hibernate.annotations.OnDeleteAction;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-@Table(name = "recipes")
-public class Recipe {
+@Table(name = "pedidos")
+public class Pedido {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private long id;
 
-	@Column(name = "insumo")
-	private String insumo;
+	@Column(name = "nombre")
+	private String nombre;
 
 	@Column(name = "cantidad")
 	private String cantidad;
@@ -23,23 +23,26 @@ public class Recipe {
 	@Column(name = "unidad")
 	private String unidad;
 
+	@Column(name = "estado")
+	private boolean estado;
+
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
-	@JoinColumn(name = "product_id", nullable = false)
+	@JoinColumn(name = "order_id", nullable = false)
 	@OnDelete(action = OnDeleteAction.CASCADE)
 	@JsonIgnore
 
-	private Product product;
+	private Order order;
 
-	public Long getId() {
+	public long getId() {
 		return id;
 	}
 
-	public String getInsumo() {
-		return insumo;
+	public String getNombre() {
+		return nombre;
 	}
 
-	public void setInsumo(String insumo) {
-		this.insumo = insumo;
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
 	}
 
 	public String getCantidad() {
@@ -58,12 +61,20 @@ public class Recipe {
 		this.unidad = unidad;
 	}
 
-	public Product getProduct() {
-		return product;
+	public boolean isEstado() {
+		return estado;
 	}
 
-	public void setProduct(Product product) {
-		this.product = product;
+	public void setEstado(boolean estado) {
+		this.estado = estado;
+	}
+
+	public Order getOrder() {
+		return order;
+	}
+
+	public void setOrder(Order order) {
+		this.order = order;
 	}
 
 }
