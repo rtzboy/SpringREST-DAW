@@ -19,19 +19,15 @@ public class Product {
 	@Column(name = "urlimage")
 	private String urlimage;
 
-	@Column(name = "fecharegistro")
-	private String fecharegistro;
-
 	public Product() {
 
 	}
 
-	public Product(String nombre, String categoria, String urlimage, String fecharegistro) {
+	public Product(String nombre, String categoria, String urlimage) {
 		super();
 		this.nombre = nombre;
 		this.categoria = categoria;
 		this.urlimage = urlimage;
-		this.fecharegistro = fecharegistro;
 	}
 
 	public long getId() {
@@ -62,18 +58,9 @@ public class Product {
 		this.urlimage = urlimage;
 	}
 
-	public String getFecharegistro() {
-		return fecharegistro;
-	}
-
-	public void setFecharegistro(String fecharegistro) {
-		this.fecharegistro = fecharegistro;
-	}
-
 	@Override
 	public String toString() {
-		return "Product [id=" + id + ", nombre=" + nombre + ", categoria=" + categoria + ", urlimage=" + urlimage
-				+ ", fecharegistro=" + fecharegistro + "]";
+		return "Product [id=" + id + ", nombre=" + nombre + ", categoria=" + categoria + ", urlimage=" + urlimage + "]";
 	}
 
 }

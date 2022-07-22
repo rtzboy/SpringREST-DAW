@@ -56,7 +56,7 @@ public class ProductController {
 	@PostMapping("/products")
 	public ResponseEntity<Product> createProduct(@RequestBody Product product) {
 		Product _product = productRepository.save(new Product(product.getNombre(), product.getCategoria(),
-				product.getUrlimage(), product.getFecharegistro()));
+				product.getUrlimage()));
 		return new ResponseEntity<>(_product, HttpStatus.CREATED);
 	}
 
@@ -68,7 +68,6 @@ public class ProductController {
 		_product.setNombre(product.getNombre());
 		_product.setCategoria(product.getCategoria());
 		_product.setUrlimage(product.getUrlimage());
-		_product.setFecharegistro(product.getFecharegistro());
 
 		return new ResponseEntity<>(productRepository.save(_product), HttpStatus.OK);
 	}
