@@ -67,7 +67,8 @@ public class PedidoController {
 		pedido.setNombre(pedidoRequest.getNombre());
 		pedido.setCantidad(pedidoRequest.getCantidad());
 		pedido.setUnidad(pedidoRequest.getUnidad());
-		pedido.setEstado(pedidoRequest.isEstado());
+		pedido.setStsordveri(pedidoRequest.isStsordveri());
+		pedido.setStspedveri(pedidoRequest.isStspedveri());
 
 		return new ResponseEntity<>(pedidoRepository.save(pedido), HttpStatus.OK);
 	}

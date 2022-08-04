@@ -23,8 +23,11 @@ public class Pedido {
 	@Column(name = "unidad")
 	private String unidad;
 
-	@Column(name = "estado")
-	private boolean estado;
+	@Column(name = "stsordveri")
+	private boolean stsordveri;
+	
+	@Column(name = "stspedveri")
+	private boolean stspedveri;
 
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	@JoinColumn(name = "order_id", nullable = false)
@@ -61,12 +64,20 @@ public class Pedido {
 		this.unidad = unidad;
 	}
 
-	public boolean isEstado() {
-		return estado;
+	public boolean isStsordveri() {
+		return stsordveri;
 	}
 
-	public void setEstado(boolean estado) {
-		this.estado = estado;
+	public void setStsordveri(boolean stsordveri) {
+		this.stsordveri = stsordveri;
+	}
+
+	public boolean isStspedveri() {
+		return stspedveri;
+	}
+
+	public void setStspedveri(boolean stspedveri) {
+		this.stspedveri = stspedveri;
 	}
 
 	public Order getOrder() {
